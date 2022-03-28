@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body class="flex-column min-100-vh">
+    <header class="hero">
+        <h1 class="w-title">Weather Dashboard</h1>
+        <p>Find a Forecast</p>
+    </header>
+
+    <main class="container row">
+        <div class="left-container col-12 col-md-4">
+            <!-- Left side- top column -->
+            <div class="left-top">
+                <h3 class="card-header text-uppercase">Search for a City</h3>
+                <form id="city-form" class="card-body">
+                    <label class="form-label" for="city" ></label>
+                    <input name="city-name" id="city-name" type="text" autofocus="true" class="form-input" value="City Name"/>
+                    <button type="submit" class="btn">Search</button>
+                </form>
+            </div>
+            <!-- Left side- bottom column -->
+            <div class="left-bottom">
+                <button type="submit" class="btn">City 1</button>
+                <button type="submit" class="btn">City 2</button>
+                <button type="submit" class="btn">City 3</button>
+                <button type="submit" class="btn">City 4</button>
+                <button type="submit" class="btn">City 5</button>
+            </div>
+        </div>
+        <div class="right-container col-12 col-md-8">
+            <!-- Right side-top column -->
+            <div class="right-top">
+                <h2 class="city-title">TBD City name</h2>
+                <div id="city-container" class="city-w-info"></div>
+            </div>
+            <!-- Right side- bottom column -->
+            <div class="right-bottom">
+                <div class="card">
+                    <h4 class="card-header d-flex ">Forecast 1</h4>
+                    <ul id="card-1" class="card-forecast"> 
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 class="card-header d-flex ">Forecast 2</h4>
+                    <ul id="card-1" class="card-forecast"> 
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 class="card-header d-flex ">Forecast 3</h4>
+                    <ul id="card-1" class="card-forecast"> 
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 class="card-header d-flex ">Forecast 4</h4>
+                    <ul id="card-1" class="card-forecast"> 
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 class="card-header d-flex ">Forecast 5</h4>
+                    <ul id="card-1" class="card-forecast"> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
