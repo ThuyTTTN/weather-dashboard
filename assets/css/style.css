@@ -3,12 +3,86 @@
     box-sizing: border-box;
 }
 
-.btn {
-    border: 1px solid gray;
+
+.hero {
+    padding: 3% 4%;
+    background-color: #f1f1f1;
+    
 }
 
-.card {
-    display: grid;
+h1 {
+    background-color: #7f9ba6;
+    color: #f1f1f1;
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.min-100-vh {
+    min-height: 100vh;
+}
+
+.form-label, .form-input {
+  display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 3%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.left-bottom {
+    padding: 20px;
+}
+.btn {
+    border: 1px solid gray;
+    margin-top: 3px;
+    font-size: 1.3rem;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+}
+
+
+.city-btn {
+    border: 1px solid gray;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    text-decoration:none;
+    padding: 6px 5px;
+    
+}
+
+
+.right-bottom {
+    margin: 0;
 }
 
 /* card */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 3px;
+    /* text-align: center; */
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* align-items: stretch; */
+    margin: 2px;
+    
+    
+}
