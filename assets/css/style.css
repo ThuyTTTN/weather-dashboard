@@ -137,6 +137,18 @@ h4 {
     background-color: white;
 }
 
+.favorable {
+    background-color: green;
+}
+
+.moderate {
+    background-color: goldenrod;
+}
+
+.severe {
+    background-color: red;
+}
+
 /* card */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

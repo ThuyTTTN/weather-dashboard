@@ -71,7 +71,8 @@ var getCityData = function(city) {
                                                 <div>Wind:   ${weatherData.wind} MPH</div>
                                                 <div>Humidity:   ${weatherData.humidity}%</div> 
                                             </div>`  
-                        }   
+                        }
+                        
                     }); 
                 });
             })
@@ -87,6 +88,15 @@ var displayData = function(data) {
     const { temp, wind_speed, humidity, uvi } = data.current;   
     const { icon } = data.current.weather[0]; 
 
+    var colorBlock = ""
+        if (uvi > 7) {
+            colorBlock = "severe";
+        } else if (uvi > 4 && uvi < 7) {
+            colorBlock = "moderate";
+        } else if (uvi < 4) {
+            colorBlock = "favorable";
+        }
+
     cityContainer.innerHTML = 
         `<div class="weatherInfo">
             <div class="w-icon"><img src="http://openweathermap.org/img/w/${icon}.png"></div>
@@ -94,9 +104,9 @@ var displayData = function(data) {
             <div>Temp:   ${temp}°F</div>
             <div>Wind:   ${wind_speed} MPH</div>
             <div>Humidity:   ${humidity}%</div>
-            <div>UV Index:   ${uvi}</div>
+            <div class="color ${colorBlock}">UV Index:   ${uvi}</div>
         </div>`;
-        
+
 }
 
 
