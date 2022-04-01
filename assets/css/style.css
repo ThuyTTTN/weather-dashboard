@@ -25,6 +25,10 @@ h1 {
     padding: 2px;
 }
 
+.city-group {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
 .right-top {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -92,6 +96,11 @@ h4 {
 
 .left-bottom {
     padding: 20px;
+}
+
+.city-group {
+    padding: 0;
+    list-style: none;
 }
 
 .btn {

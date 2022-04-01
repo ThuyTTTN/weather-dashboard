@@ -3,7 +3,6 @@ var cityNameInput = document.querySelector("#city-name");       //form input
 var cityContainer = document.querySelector("#city-container");
 var dataSearchTerm = document.querySelector("#data-search-term"); //City: results
 
-
 let city = document.getElementById('city-name').value;
 
 
@@ -15,9 +14,13 @@ const year = date.getFullYear();
 const fullYear = " " + "(" + month + "/" + day + "/" + year + ")";
 console.log(fullYear);
 
+var searchHistoryList = [];
+
 //create handler to execute form upon submission
 var formSubmitHandler = function(event) {
     event.preventDefault();
+
+    domload();
     
     var cityName = cityNameInput.value.trim();
     if (cityName) {
@@ -25,8 +28,18 @@ var formSubmitHandler = function(event) {
         cityNameInput.value = "";
     } else {
         alert("Please enter a city.");
-    }
+    };
+
+    if (!searchHistoryList.includes(cityName)) {
+        searchHistoryList.push(cityName);
+        
+    };
+
+    localStorage.setItem("city", JSON.stringify(searchHistoryList));
+    console.log(searchHistoryList);
 };
+
+
 
 
 var getCityData = function(city) {
@@ -38,7 +51,7 @@ var getCityData = function(city) {
         if (response.ok) {
             response.json().then(function(data) {
                 const { lat, lon, name } = data[0];
-                 console.log(data[0]);  
+                //  console.log(data[0]);  
                  
                      dataSearchTerm.innerHTML = `<h2 class="city-title">${name + fullYear}</h2>`;
   
@@ -47,7 +60,7 @@ var getCityData = function(city) {
                 
                 fetch(apiUrl2).then(function(response){
                     response.json().then(function(data) {
-                        console.log(data);
+                        // console.log(data);
                         displayData(data);  
 
                         for (i = 1; i <= 5; i++) {
@@ -60,7 +73,7 @@ var getCityData = function(city) {
                             };
                             
                             var currentDate = moment.unix(weatherData.date).format("MM/DD/YYYY");
-                            console.log(currentDate);
+                            // console.log(currentDate);
 
                             document.getElementById("forecastDate"+ i).innerHTML = `<div>${currentDate}</div>`
                             
@@ -72,7 +85,6 @@ var getCityData = function(city) {
                                                 <div>Humidity:   ${weatherData.humidity}%</div> 
                                             </div>`  
                         }
-                        
                     }); 
                 });
             })
@@ -113,7 +125,41 @@ var displayData = function(data) {
 // call the function
 cityForm.addEventListener("submit", formSubmitHandler);
 
+ 
 
+document.querySelector("#history-0").addEventListener("click", (event) => {
+    console.log("button 1 clicked");
+    var cityList = document.getElementById("history-0").innerHTML;
+    console.log(cityList);
+    getCityData(cityList);
+})
+
+
+
+
+function domload() { 
+
+    var searchHistoryArray = JSON.parse(localStorage.getItem("city"));
+    console.log("inside dom array " + searchHistoryArray);
+    console.log(searchHistoryArray);
+
+
+    
+        var cityHistory = document.getElementById("history-0");
+        
+
+        if (!searchHistoryArray ) {
+            console.log("inside if statement");
+            cityHistory.value.innerText = "";
+        } else {
+            cityHistory.innerText = `${searchHistoryArray[0]}`;
+            console.log(`${searchHistoryArray[0]}`); 
+        }
+    
+
+};
+
+domload();
 
 
 
