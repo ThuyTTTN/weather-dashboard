@@ -2,16 +2,7 @@ var cityForm = document.querySelector("#city-form");
 var cityNameInput = document.querySelector("#city-name");       //form input
 var cityContainer = document.querySelector("#city-container");
 var dataSearchTerm = document.querySelector("#data-search-term"); //City: results
-var forecast1 = document.querySelector("#card-1");
-var forecast2 = document.querySelector("#card-2");
-var forecast3 = document.querySelector("#card-3");
-var forecast4 = document.querySelector("#card-4");
-var forecast5 = document.querySelector("#card-5");
-var forecastDate1 = document.querySelector("#forecastDate1");
-var forecastDate2 = document.querySelector("#forecastDate2");
-var forecastDate3 = document.querySelector("#forecastDate3");
-var forecastDate4 = document.querySelector("#forecastDate4");
-var forecastDate5 = document.querySelector("#forecastDate5");
+
 
 let city = document.getElementById('city-name').value;
 
@@ -59,25 +50,28 @@ var getCityData = function(city) {
                         console.log(data);
                         displayData(data);  
 
-                        const { dt } = data.daily[1];
-                        const { temp, wind_speed, humidity } = data.daily[1]; 
-                        const { icon } = data.current.weather[0]; 
-                        
-                        const milliseconds = dt * 1000;
-                        const dateObject = new Date(milliseconds);
-                        const humanDate = dateObject.toLocaleString("en-US", {timeZoneName: "short"});
-                        const splits1 = humanDate.split(", ")[0];
-                        console.log(splits1);
-                        forecastDate1.innerHTML = `<div class="F-date">${splits1}</div>`
+                        for (i = 1; i <= 5; i++) {
+                            var weatherData = {
+                                temp:  data.daily[i].temp.day,
+                                wind:  data.daily[i].wind_speed,
+                                humidity: data.daily[i].humidity,
+                                date: data.daily[i].dt,
+                                icon: data.current.weather[0].icon
+                            };
+                            
+                            var currentDate = moment.unix(weatherData.date).format("MM/DD/YYYY");
+                            console.log(currentDate);
 
-                        forecast1.innerHTML =
-                            `<div class="forecast">
-                                <div class="w-icon"><img src="http://openweathermap.org/img/w/${icon}.png"></div>
-                                <div>Temp:   ${temp.day}°F</div>
-                                <div>Wind:   ${wind_speed} MPH</div>
-                                <div>Humidity:   ${humidity}%</div> 
-                            </div>`
-
+                            document.getElementById("forecastDate"+ i).innerHTML = `<div>${currentDate}</div>`
+                            
+                            document.getElementById("card-date-" + i).innerHTML =
+                                            `<div class="forecast">
+                                                <div class="w-icon"><img src="http://openweathermap.org/img/w/${weatherData.icon}.png"></div>
+                                                <div>Temp:   ${weatherData.temp}°F</div>
+                                                <div>Wind:   ${weatherData.wind} MPH</div>
+                                                <div>Humidity:   ${weatherData.humidity}%</div> 
+                                            </div>`  
+                        }   
                     }); 
                 });
             })
@@ -85,7 +79,6 @@ var getCityData = function(city) {
             alert("Error");
         }
     }) 
-    
 }
 
 // Show weather data
@@ -105,8 +98,6 @@ var displayData = function(data) {
         </div>`;
         
 }
-
-
 
 
 // call the function
