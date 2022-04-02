@@ -7,4 +7,4 @@ This challenge was to create a Weather Dashboard by utilizing Open Weather API. 
 https://thuytttn.github.io/weather-dashboard/
 
 #### Screenshots of the Work Day Scheduler
- 
+![screencapture-weather-dashboard](https://user-images.githubusercontent.com/92459709/161399992-b3ec314c-c2db-4fda-ac65-0233f2efd821.png)
