@@ -32,14 +32,11 @@ var formSubmitHandler = function(event) {
 
     if (!searchHistoryList.includes(cityName)) {
         searchHistoryList.push(cityName);
-        
     };
 
     localStorage.setItem("city", JSON.stringify(searchHistoryList));
     console.log(searchHistoryList);
 };
-
-
 
 
 var getCityData = function(city) {
@@ -125,7 +122,6 @@ var displayData = function(data) {
 // call the function
 cityForm.addEventListener("submit", formSubmitHandler);
 
- 
 
 document.querySelector("#history-0").addEventListener("click", (event) => {
     console.log("button 1 clicked");
@@ -135,19 +131,14 @@ document.querySelector("#history-0").addEventListener("click", (event) => {
 })
 
 
-
-
 function domload() { 
 
     var searchHistoryArray = JSON.parse(localStorage.getItem("city"));
     console.log("inside dom array " + searchHistoryArray);
     console.log(searchHistoryArray);
 
-
-    
         var cityHistory = document.getElementById("history-0");
         
-
         if (!searchHistoryArray ) {
             console.log("inside if statement");
             cityHistory.value.innerText = "";
@@ -155,8 +146,6 @@ function domload() {
             cityHistory.innerText = `${searchHistoryArray[0]}`;
             console.log(`${searchHistoryArray[0]}`); 
         }
-    
-
 };
 
 domload();
