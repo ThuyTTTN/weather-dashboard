@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url("/Users/ttruo/Desktop/projects/weather-dashboard/assets/images/cloud-bg.jpg");
+    background-image: url("../images/cloud-bg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
