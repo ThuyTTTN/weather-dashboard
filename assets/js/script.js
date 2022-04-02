@@ -41,7 +41,7 @@ var formSubmitHandler = function(event) {
 
 var getCityData = function(city) {
     // format the openweathermap api url
-    var apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${api_key}`;
+    var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${api_key}`;
 
     //make a request to the url for the lat/lon
     fetch(apiUrl).then(function(response) {
