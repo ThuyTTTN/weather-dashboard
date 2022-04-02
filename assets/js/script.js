@@ -76,7 +76,7 @@ var getCityData = function(city) {
                             
                             document.getElementById("card-date-" + i).innerHTML =
                                             `<div class="forecast">
-                                                <div class="w-icon"><img src="http://openweathermap.org/img/w/${weatherData.icon}.png"></div>
+                                                <div class="w-icon"><img src="https://openweathermap.org/img/w/${weatherData.icon}.png"></div>
                                                 <div>Temp:   ${weatherData.temp}°F</div>
                                                 <div>Wind:   ${weatherData.wind} MPH</div>
                                                 <div>Humidity:   ${weatherData.humidity}%</div> 
@@ -108,7 +108,7 @@ var displayData = function(data) {
 
     cityContainer.innerHTML = 
         `<div class="weatherInfo">
-            <div class="w-icon"><img src="http://openweathermap.org/img/w/${icon}.png"></div>
+            <div class="w-icon"><img src="https://openweathermap.org/img/w/${icon}.png"></div>
             <div class="weatherInfo">
             <div>Temp:   ${temp}°F</div>
             <div>Wind:   ${wind_speed} MPH</div>
